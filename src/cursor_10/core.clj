@@ -1,7 +1,5 @@
 (ns cursor-10.core)
 
-(def sleep-time 100)
-
 (def start-pos
      ;; The position of the start button for the game
      [726 608])
@@ -35,16 +33,16 @@
 
 (defn click-point
   ([[x y]]
-     (dorun [(println x y)
-             (.mouseMove (java.awt.Robot.) x y)
-             (Thread/sleep sleep-time)
-             (.mousePress (java.awt.Robot.)
-                          (.. java.awt.event.InputEvent BUTTON1_MASK))
-             (Thread/sleep sleep-time)
-             (.mouseRelease (java.awt.Robot.)
-                          (.. java.awt.event.InputEvent BUTTON1_MASK))
-             (Thread/sleep sleep-time)
-             ])))
+     (let [sleep-time 20]
+       (dorun [(println x y)
+               (.mouseMove (java.awt.Robot.) x y)
+               (Thread/sleep sleep-time)
+               (.mousePress (java.awt.Robot.)
+                            (.. java.awt.event.InputEvent BUTTON1_MASK))
+               (Thread/sleep sleep-time)
+               (.mouseRelease (java.awt.Robot.)
+                              (.. java.awt.event.InputEvent BUTTON1_MASK))
+               ]))))
 
 (defn click-points [seq]
   (doseq [point seq] (click-point point)))
@@ -63,6 +61,6 @@
 
 (defn run-game []
   (dorun [(click-point start-pos)
-          (Thread/sleep 1000)
+          (Thread/sleep 1500)
           (doseq [floor (take (dec (count ladders)) (iterate inc 1))]
             (dorun [(clear-floor floor) (move-up floor)]))]))
