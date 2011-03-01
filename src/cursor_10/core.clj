@@ -64,5 +64,5 @@
 (defn run-game []
   (dorun [(click-point start-pos)
           (Thread/sleep 1000)
-          (doseq [floor (take 4 (iterate inc 1))]
+          (doseq [floor (take (dec (count ladders)) (iterate inc 1))]
             (dorun [(clear-floor floor) (move-up floor)]))]))
