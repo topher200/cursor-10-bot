@@ -30,7 +30,7 @@
              ])))
 
 (defn click-points [seq]
-  (map click-point seq))
+  (doseq [point seq] (click-point point)))
 
 (defn clear-floor [floor]
   (click-points (nth crystals floor)))
