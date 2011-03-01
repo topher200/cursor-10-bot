@@ -1,5 +1,11 @@
 (ns cursor-10.core)
 
+(def sleep-time 10)
+
+(def start-pos
+     ;; The position of the start button for the game
+     [726.0 608.0])
+
 (def crystals
      ;; Vector of vectors of [X Y] coordinates (whooo) with crystal locations.
      ;; Each vector cooresponds to a different floor. Floor counting starts at 1
@@ -20,13 +26,11 @@
   ([[x y]]
      (dorun [(println x y)
              (.mouseMove (java.awt.Robot.) x y)
-             (Thread/sleep 200)
+             (Thread/sleep sleep-time)
              (.mousePress (java.awt.Robot.)
                           (.. java.awt.event.InputEvent BUTTON1_MASK))
-             (Thread/sleep 200)
              (.mouseRelease (java.awt.Robot.)
                           (.. java.awt.event.InputEvent BUTTON1_MASK))
-             (Thread/sleep 200)
              ])))
 
 (defn click-points [seq]
@@ -46,5 +50,7 @@
    (conj (nth crystals 0) (nth ladders 0))))
 
 (defn run-game []
-  ;; (map #(dorun [(clear-floor %) (move-up %)]) [1 2]))
-  (dorun [(clear-floor 1) (move-up 1) (clear-floor 2)]))
+  (dorun [(click-point start-pos)
+          (Thread/sleep 1000)
+          (doseq [floor [1 2]]
+            (dorun [(clear-floor floor) (move-up floor)]))]))
