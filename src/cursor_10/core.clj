@@ -4,14 +4,15 @@
 
 (def start-pos
      ;; The position of the start button for the game
-     [726.0 608.0])
+     [726 608])
 
 (def crystals
      ;; Vector of vectors of [X Y] coordinates (whooo) with crystal locations.
      ;; Each vector cooresponds to a different floor. Floor counting starts at 1
      [[]
-      [[723.0 577.0] [611.0 510.0] [754.0 415.0] [855.0 483.0]]
-      [[511.0 486.0] [727.0 612.0] [725.0 486.0] [723.0 363.0]]
+      [[723 577] [611 510] [754 415] [855 483]]
+      [[511 486] [727 612] [725 486] [723 363]]
+      [] ;; TODO
       []
       ])
 
@@ -19,9 +20,11 @@
      ;; Vector of vectors of [X Y] coordinates for every possible place for
      ;; the ladder on each level. Floor counting starts at 1.
      [[]
-      [[619.0 420.0]]
-      [[956.0 488.0]]
-      [[675.0 516.0]]
+      [[619 420]]
+      [[956 488]]
+      [[675 516]]
+      [[637 547] [541 493] [608 476] [639 427] [722 373] [720 420] [730 477]
+       [725 539] [721 587] [815 536] [821 477] [798 431] [899 491]]
       ])
 
 (defn click-point
