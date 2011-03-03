@@ -17,6 +17,17 @@
       [] ;; TODO
       ])
 
+(def hold-blocks
+     [[]
+      []
+      []
+      []
+      []
+      []
+      []
+      []
+      [[758.0 472.0]]])
+
 (def ladders
      ;; Vector of vectors of [X Y] coordinates for every possible place for
      ;; the ladder on each level. Floor counting starts at 1.
