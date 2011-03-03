@@ -43,17 +43,17 @@
       ])
 
 (defn click-point
-  ([[x y]]
-     (let [sleep-time 20]
-       (dorun [(println x y)
-               (.mouseMove (java.awt.Robot.) x y)
-               (Thread/sleep sleep-time)
-               (.mousePress (java.awt.Robot.)
+  ([[x y]] (click-point [x y] 20))
+  ([[x y] sleep-time]
+     (dorun [(println x y)
+             (.mouseMove (java.awt.Robot.) x y)
+             (Thread/sleep 20) ;; replace
+             (.mousePress (java.awt.Robot.)
+                          (.. java.awt.event.InputEvent BUTTON1_MASK))
+             (Thread/sleep sleep-time)
+             (.mouseRelease (java.awt.Robot.)
                             (.. java.awt.event.InputEvent BUTTON1_MASK))
-               (Thread/sleep sleep-time)
-               (.mouseRelease (java.awt.Robot.)
-                              (.. java.awt.event.InputEvent BUTTON1_MASK))
-               ]))))
+             ])))
 
 (defn click-points [seq]
   (doseq [point seq] (click-point point)))
