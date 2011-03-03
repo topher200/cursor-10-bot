@@ -70,8 +70,16 @@
 (defn clear-floor-and-move-up [floor]
   (dorun [(clear-floor floor) (move-up floor)]))
 
+(defn move-to-floor [start destination]
+  (doseq [floor (take (dec destination) (iterate inc start))]))
+
+(defn run-cursor [num]
+  (case num
+        1 (move-to-floor 1 8)
+        2 (print "asdf")))
+
 (defn run-game []
   (dorun [(click-point start-pos)
           (Thread/sleep 1500)
-          (doseq [floor (take (dec (count ladders)) (iterate inc 1))]
-            (dorun [(clear-floor floor) (move-up floor)]))]))
+          (doseq [cursor (take 2 (iterate inc 1))]
+            (run-cursor cursor))]))
