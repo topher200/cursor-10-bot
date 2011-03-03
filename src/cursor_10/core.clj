@@ -67,11 +67,16 @@
     (dorun [(click-points (nth ladders floor))
             (click-points (nth ladders floor))])))
 
+(defn hold-floor-block [floor]
+  ;; assumes there is one hold-block per floor
+  8 (click-point (first (nth hold-blocks floor)) 15000))
+
 (defn clear-floor-and-move-up [floor]
   (dorun [(clear-floor floor) (move-up floor)]))
 
 (defn move-to-floor [start destination]
-  (doseq [floor (take (dec destination) (iterate inc start))]))
+  (doseq [floor (take (dec destination) (iterate inc start))]
+    (move-up floor)))
 
 (defn run-cursor [num]
   (case num
