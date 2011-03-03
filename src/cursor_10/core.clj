@@ -80,7 +80,7 @@
 
 (defn run-cursor [num]
   (case num
-        1 (move-to-floor 1 8)
+        1 (dorun [(move-to-floor 1 8) (hold-floor-block 8)])
         2 (print "asdf")))
 
 (defn run-game []
