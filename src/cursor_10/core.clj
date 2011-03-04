@@ -84,10 +84,10 @@
 (defn run-cursor [num]
   (case num
         1 (dorun [(move-to-floor 1 8) (hold-floor-block 8)])
-        2 (print "asdf")))
+        2 (dorun [(move-to-floor 1 11)])))
 
 (defn run-game []
   (dorun [(click-point start-pos)
           (Thread/sleep 1500)
-          (doseq [cursor (take 2 (iterate inc 1))]
+          (doseq [cursor (take 1 (iterate inc 1))]
             (run-cursor cursor))]))
