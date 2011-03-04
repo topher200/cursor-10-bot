@@ -26,7 +26,7 @@
       []
       []
       []
-      [[758.0 472.0]]])
+      [[758 472]]])
 
 (def ladders
      ;; Vector of vectors of [X Y] coordinates for every possible place for
