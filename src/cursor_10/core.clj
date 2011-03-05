@@ -83,7 +83,7 @@
 (defn run-cursor [num]
   (case num
         1 (dorun  ;; move to 8, clicking 4 twice. hold block on 8
-           [(move-to-floor 1 4) (move-to-floor 4 8) (hold-floor-block 8)])
+           [(move-to-floor 1 5) (move-to-floor 4 8) (hold-floor-block 8)])
         2 (dorun  ;; move to 11, click rapidly on box
            [(move-to-floor 1 11) (rapidly-click-on-point (nth ladders 11))])))
 
