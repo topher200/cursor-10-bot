@@ -78,8 +78,7 @@
   (dorun [(clear-floor floor) (move-up floor)]))
 
 (defn move-to-floor [start destination]
-  (doseq [floor (take (dec destination) (iterate inc start))]
-    (move-up floor)))
+  (doseq [floor (take (dec destination) (iterate inc start))] (move-up floor)))
 
 (defn run-cursor [num]
   (case num
