@@ -70,7 +70,7 @@
 
 (defn hold-floor-block [floor]
   ;; assumes there is one hold-block per floor
-  8 (click-point (first (nth hold-blocks floor)) 15000))
+  (click-point (first (nth hold-blocks floor)) 15000))
 
 (defn rapidly-click-on-point [point]
      (repeatedly 99 (click-point (first point))))
