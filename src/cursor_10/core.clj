@@ -74,6 +74,9 @@
   ;; assumes there is one hold-block per floor
   8 (click-point (first (nth hold-blocks floor)) 15000))
 
+(defn rapidly-click-on-point [point]
+     (repeatedly 99 (click-point (first point))))
+
 (defn clear-floor-and-move-up [floor]
   (dorun [(clear-floor floor) (move-up floor)]))
 
@@ -86,7 +89,7 @@
         1 (dorun  ;; move to 8, clicking 4 twice. hold block on 8
            [(move-to-floor 1 4) (move-to-floor 4 8) (hold-floor-block 8)])
         2 (dorun  ;; move to 11, click rapidly on box
-           [(move-to-floor 1 11) (rapidly-click-on-box (nth ladders 11))])))
+           [(move-to-floor 1 11) (rapidly-click-on-point (nth ladders 11))])))
 
 (defn run-game []
   (dorun [(click-point start-pos)
