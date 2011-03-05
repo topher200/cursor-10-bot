@@ -43,7 +43,6 @@
       [[822 421]]
       [[619 416]]
       [[722 475]]
-      [[758 472]]
       ])
 
 (defn click-point
@@ -86,7 +85,7 @@
         1 (dorun  ;; move to 8, clicking 4 twice. hold block on 8
            [(move-to-floor 1 5) (move-to-floor 4 8) (hold-floor-block 8)])
         2 (dorun  ;; move to 11, click rapidly on box
-           [(move-to-floor 1 11) (rapidly-click-on-point (nth ladders 11))])))
+           [(move-to-floor 1 11) (rapidly-click-on-point (nth ladders 10))])))
 
 (defn run-game []
   (dorun [(click-point start-pos)
