@@ -1,5 +1,7 @@
 (ns cursor-10.core)
 
+(def offset [448.0 299.0])  ;; top-left pixel of game
+
 (def start-pos
      ;; The position of the start button for the game
      [278 309])
@@ -48,15 +50,16 @@
 (defn click-point
   ([[x y]] (click-point [x y] 20))
   ([[x y] sleep-time]
-     (dorun [(println x y)
-             (.mouseMove (java.awt.Robot.) x y)
-             (Thread/sleep 20) ;; replace
-             (.mousePress (java.awt.Robot.)
-                          (.. java.awt.event.InputEvent BUTTON1_MASK))
-             (Thread/sleep sleep-time)
-             (.mouseRelease (java.awt.Robot.)
+     (let [[x y] (map + [x y] offset)]
+       (dorun [(println x y)
+               (.mouseMove (java.awt.Robot.) x y)
+               (Thread/sleep 20) ;; replace
+               (.mousePress (java.awt.Robot.)
                             (.. java.awt.event.InputEvent BUTTON1_MASK))
-             ])))
+               (Thread/sleep sleep-time)
+               (.mouseRelease (java.awt.Robot.)
+                              (.. java.awt.event.InputEvent BUTTON1_MASK))
+               ]))))
 
 (defn click-points [seq]
   (doseq [point seq] (click-point point)))
