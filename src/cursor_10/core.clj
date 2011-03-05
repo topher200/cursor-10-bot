@@ -65,10 +65,7 @@
   (click-points (nth crystals floor)))
 
 (defn move-up [floor]
-  (if (not= floor 4) ;; ladders on 4 must be clicked x2
-    (click-points (nth ladders floor))
-    (dorun [(click-points (nth ladders floor))
-            (click-points (nth ladders floor))])))
+  (click-points (nth ladders floor)))
 
 (defn hold-floor-block [floor]
   ;; assumes there is one hold-block per floor
