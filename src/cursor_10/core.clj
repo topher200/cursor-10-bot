@@ -82,9 +82,10 @@
 (defn move-up [floor]
   (click-points (nth ladders floor)))
 
-(defn hold-floor-block [floor block-num]
-  ;; assumes there is one hold-block per floor
-  (click-point (nth block-num (nth hold-blocks floor)) 15000))
+(defn hold-floor-block
+  ([floor] (hold-floor-block floor 0))
+  ([floor block-num]
+     (click-point (nth (nth hold-blocks floor) block-num) 12000)))
 
 (defn rapidly-click-on-box [floor]
      (dorun (repeatedly 99 #(click-point (first (nth ladders floor))))))
@@ -101,8 +102,8 @@
            [(move-to-floor 1 5) (move-to-floor 4 8) (hold-floor-block 8)])
         2 (dorun  ;; move to 10, click rapidly on box
            [(move-to-floor 1 10) (rapidly-click-on-box 10)])
-        3 (dorun  ;; move to 15, hold block #1 on 15
-           [(move-to-floor 1 15) (hold-floor-block 15 1)])
+        3 (dorun  ;; move to 15, hold block #0 on 15
+           [(move-to-floor 1 15) (hold-floor-block 15 0)])
         ))
 
 (defn run-game []
