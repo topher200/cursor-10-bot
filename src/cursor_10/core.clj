@@ -53,7 +53,7 @@
      (let [[x y] (map + [orig-x orig-y] offset)]
        (dorun [(println orig-x orig-y)
                (.mouseMove (java.awt.Robot.) x y)
-               (Thread/sleep 20) ;; replace
+               (Thread/sleep 20) ;; TODO(topher): replace
                (.mousePress (java.awt.Robot.)
                             (.. java.awt.event.InputEvent BUTTON1_MASK))
                (Thread/sleep sleep-time)
