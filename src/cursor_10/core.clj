@@ -26,7 +26,7 @@
       []
       []
       []  ;; floor 5
-      []
+      [[274 325]]
       []
       [[310 173]]
       []
@@ -35,7 +35,7 @@
       []
       []
       []
-      [[44 195]]
+      [[44 195] [270 66] [499 196]]
       ])
 
 (def ladders
@@ -104,6 +104,12 @@
            [(move-to-floor 1 10) (rapidly-click-on-box 10)])
         3 (dorun  ;; move to 15, hold block #0 on 15
            [(move-to-floor 1 15) (hold-floor-block 15 0)])
+        4 (dorun  ;; move to 15, hold block #1 on 15
+           [(move-to-floor 1 15) (hold-floor-block 15 1)])
+        5 (dorun  ;; move to 15, hold block #2 on 15
+           [(move-to-floor 1 15) (hold-floor-block 15 2)])
+        6 (dorun  ;; move to 6, hold block on box
+           [(move-to-floor 1 6) (hold-floor-block 6)])
         ))
 
 (defn run-game []
