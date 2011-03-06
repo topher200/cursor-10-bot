@@ -49,9 +49,9 @@
 
 (defn click-point
   ([[x y]] (click-point [x y] 20))
-  ([[x y] sleep-time]
-     (let [[x y] (map + [x y] offset)]
-       (dorun [(println x y)
+  ([[orig-x orig-y] sleep-time]
+     (let [[x y] (map + [orig-x orig-y] offset)]
+       (dorun [(println orig-x orig-y)
                (.mouseMove (java.awt.Robot.) x y)
                (Thread/sleep 20) ;; replace
                (.mousePress (java.awt.Robot.)
