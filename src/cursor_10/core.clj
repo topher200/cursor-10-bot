@@ -45,6 +45,9 @@
       [[374 122]]
       [[171 117]]
       [[274 176]]  ;; floor 10
+      [[502 188]]
+      [[41 190]]
+      [[271 57]]
       ])
 
 (defn click-point
@@ -88,7 +91,10 @@
         1 (dorun  ;; move to 8, clicking 4 twice. hold block on 8
            [(move-to-floor 1 5) (move-to-floor 4 8) (hold-floor-block 8)])
         2 (dorun  ;; move to 10, click rapidly on box
-           [(move-to-floor 1 10) (rapidly-click-on-box 10)])))
+           [(move-to-floor 1 10) (rapidly-click-on-box 10)])
+        3 (dorun  ;; move to 12
+           [(move-to-floor 1 12)])
+        ))
 
 (defn run-game []
   (dorun [(click-point start-pos)
