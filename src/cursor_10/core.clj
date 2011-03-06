@@ -28,7 +28,15 @@
       []  ;; floor 5
       []
       []
-      [[310 173]]])
+      [[310 173]]
+      []
+      []  ;; floor 10
+      []
+      []
+      []
+      []
+      [[44 195]]
+      ])
 
 (def ladders
      ;; Vector of vectors of [X Y] coordinates for every possible place for
@@ -48,6 +56,7 @@
       [[502 188]]
       [[41 190]]
       [[271 57]]
+      [[306 298]]
       ])
 
 (defn click-point
@@ -73,9 +82,9 @@
 (defn move-up [floor]
   (click-points (nth ladders floor)))
 
-(defn hold-floor-block [floor]
+(defn hold-floor-block [floor block-num]
   ;; assumes there is one hold-block per floor
-  (click-point (first (nth hold-blocks floor)) 15000))
+  (click-point (nth block-num (nth hold-blocks floor)) 15000))
 
 (defn rapidly-click-on-box [floor]
      (dorun (repeatedly 99 #(click-point (first (nth ladders floor))))))
@@ -92,8 +101,8 @@
            [(move-to-floor 1 5) (move-to-floor 4 8) (hold-floor-block 8)])
         2 (dorun  ;; move to 10, click rapidly on box
            [(move-to-floor 1 10) (rapidly-click-on-box 10)])
-        3 (dorun  ;; move to 12
-           [(move-to-floor 1 12)])
+        3 (dorun  ;; move to 15, hold block #1 on 15
+           [(move-to-floor 1 15) (hold-floor-block 15 1)])
         ))
 
 (defn run-game []
