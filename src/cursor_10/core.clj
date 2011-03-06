@@ -75,7 +75,7 @@
   (click-point (first (nth hold-blocks floor)) 15000))
 
 (defn rapidly-click-on-box [floor]
-     (repeatedly 99 (click-point (first (nth ladders floor)))))
+     (dorun (repeatedly 99 #(click-point (first (nth ladders floor))))))
 
 (defn clear-floor-and-move-up [floor]
   (dorun [(clear-floor floor) (move-up floor)]))
