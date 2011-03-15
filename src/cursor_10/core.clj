@@ -15,6 +15,8 @@
       [[164 261] [271 190] [324 157] [377 126]]
       []
       [[276 321] [45 189] [267 59] [499 200]]  ;; floor 5
+      []
+      [[262 62] [267 181] [47 191] [494 191] [265 322]]
       [] ;; TODO  
       [] ;; TODO
       [] ;; TODO
@@ -119,7 +121,7 @@
         6 (dorun  ;; move to 6, hold block on box
            [(move-to-floor 1 6) (hold-floor-block 6)])
         7 (dorun  ;; clear all crystals to 6
-           [(clear-and-move-to-floor 1 6)])
+           [(clear-and-move-to-floor 1 10)])
         ))
 
 (defn run-game []
