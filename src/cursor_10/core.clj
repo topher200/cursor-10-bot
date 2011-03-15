@@ -95,8 +95,14 @@
 (defn clear-floor-and-move-up [floor]
   (dorun [(clear-floor floor) (move-up floor)]))
 
+(defn run-function-to-floor [function start destination]
+  (doseq [floor (take (dec destination) (iterate inc start))] (function floor)))
+
 (defn move-to-floor [start destination]
-  (doseq [floor (take (dec destination) (iterate inc start))] (move-up floor)))
+  (run-function-to-floor move-up start destination))
+
+(defn clear-and-move-to-floor [start destination]
+  (run-function-to-floor clear-floor-and-move-up start destination))
 
 (defn run-cursor [num]
   (case num
@@ -112,6 +118,8 @@
            [(move-to-floor 1 15) (hold-floor-block 15 2)])
         6 (dorun  ;; move to 6, hold block on box
            [(move-to-floor 1 6) (hold-floor-block 6)])
+        7 (dorun  ;; clear all crystals to 6
+           [(clear-and-move-to-floor 1 6)])
         ))
 
 (defn run-game []
