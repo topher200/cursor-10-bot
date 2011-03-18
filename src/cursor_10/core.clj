@@ -20,7 +20,8 @@
       [[262 58] [237 121] [154 170] [485 189] [361 192] [290 241] [279 322]
        [36 193]]
       [[138 250] [267 318] [266 192] [488 190] [405 251] [45 195]]
-      [] ;; floor 10
+      [[261 56] [242 94] [351 125] [169 160] [383 178] [35 191] [491 193]
+       [183 229] [344 233] [268 256] [265 322]] ;; floor 10
       []
       ])
 
@@ -122,6 +123,6 @@
            [(move-to-floor 1 15) (hold-floor-block 15 2)])
         6 (dorun  ;; move to 6, hold block on box
            [(move-to-floor 1 6) (hold-floor-block 6)])
-        7 (dorun  ;; clear all crystals to 6
-           [(clear-and-move-to-floor 1 10)])
+        7 (dorun  ;; clear all crystals to 16
+           [(clear-and-move-to-floor 1 16)])
         ))
