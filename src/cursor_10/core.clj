@@ -125,9 +125,3 @@
         7 (dorun  ;; clear all crystals to 6
            [(clear-and-move-to-floor 1 10)])
         ))
-
-(defn run-game []
-  (dorun [(click-point start-pos)
-          (Thread/sleep 1500)
-          (doseq [cursor (take 1 (iterate inc 1))]
-            (run-cursor cursor))]))
