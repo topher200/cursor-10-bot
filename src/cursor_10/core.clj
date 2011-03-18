@@ -132,5 +132,5 @@
         6 (dorun  ;; move to 6, hold block on box
            [(move-to-floor 1 6) (hold-floor-block 6)])
         7 (dorun  ;; clear all crystals to 16
-           [(clear-and-move-to-floor 1 16)])
+           [(clear-and-move-to-floor 1 16) (clear-floor 16)])
         ))
