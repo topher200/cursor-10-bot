@@ -1,6 +1,6 @@
 (ns cursor-10.core)
 
-(def offset [448 299])  ;; top-left pixel of game
+(def offset [448 299])  ;; set to top-left pixel of game window
 
 (def start-pos
      ;; The position of the start button for the game
