@@ -121,16 +121,16 @@
   (case num
         1 (dorun  ;; move to 8, clicking 4 twice. hold block on 8
            [(move-to-floor 1 5) (move-to-floor 4 8) (hold-floor-block 8)])
-        2 (dorun  ;; move to 10, click rapidly on box
+        (2 3) (dorun  ;; move to 10, click rapidly on box
            [(move-to-floor 1 10) (rapidly-click-on-box 10)])
-        3 (dorun  ;; move to 15, hold block #0 on 15
+        4 (dorun  ;; move to 15, hold block #0 on 15
            [(move-to-floor 1 15) (hold-floor-block 15 0)])
-        4 (dorun  ;; move to 15, hold block #1 on 15
+        5 (dorun  ;; move to 15, hold block #1 on 15
            [(move-to-floor 1 15) (hold-floor-block 15 1)])
-        5 (dorun  ;; move to 15, hold block #2 on 15
+        6 (dorun  ;; move to 15, hold block #2 on 15
            [(move-to-floor 1 15) (hold-floor-block 15 2)])
-        6 (dorun  ;; move to 6, hold block on box
+        7 (dorun  ;; move to 6, hold block on box
            [(move-to-floor 1 6) (hold-floor-block 6)])
-        7 (dorun  ;; clear all crystals to 16
+        8 (dorun  ;; clear all crystals to 16
            [(clear-and-move-to-floor 1 16) (clear-floor 16)])
         ))
