@@ -1,13 +1,41 @@
-# cursor-10
+# "Cursor 10" Bot
+  A bot that beats the flash game "Cursor 10." Original game available here:
+  http://www.freewebarcade.com/game/cursor10/
 
-FIXME: write description
+  The game is played by controlling a series of cursor lives, each of which is
+  played back on every successive life. To beat the game, the lives must
+  coordinate between each other to solve puzzles and defeat obstacles.
 
-## Usage
 
-FIXME: write
+## Usage 
+  The bot is run by playing each cursor (eight in all) at the appropriate
+  time. After the project is imported, the cursor can be run from the REPL
+  with the (run-cursor [num]) function:
+
+    (use 'cursor-10.core)
+    (run-cursor 1)
+
+  Run each cursor at the correct time to beat the game. Most cursors must wait
+  for the others before it to accomplish their tasks, so it takes some
+  experimentation to know when to time each cursor start. The game gives 10
+  lives, so if you mess up the timing on a life you do have some second
+  changes to run them again.
+
+  If the mouse is not hitting the correct locations, adjust your 'offset'
+  constant, located in the start of core.clj. The offset is the top-left pixel
+  of the start of the flash game on the page.
+
+
+## More info
+  The source for this project is on github:
+  https://github.com/topher200/cursor-10-bot
+
+  I've written a blog post about this project, available here:
+
+  From the blog post, here is a Youtube video of the bot in action:
+  http://www.youtube.com/watch?v=r9YLRYOM0fk
+
 
 ## License
-
-Copyright (C) 2010 FIXME
-
-Distributed under the Eclipse Public License, the same as Clojure.
+  Copyright Topher Brown <topher200@gmail.com>, 2011. Released under the MIT 
+  license.
